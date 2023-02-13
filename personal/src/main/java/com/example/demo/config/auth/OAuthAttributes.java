@@ -3,6 +3,7 @@ package com.example.demo.config.auth;
 import java.util.Map;
 
 import com.example.demo.entity.Member;
+import com.example.demo.entity.Role;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -14,16 +15,16 @@ public class OAuthAttributes {
 	private String nameAttributeKey;	
 	private String name;
 	private String email;
-	private String nickname;
+	//private String nickname;
 	
 	@Builder
 	public OAuthAttributes(Map<String,Object> attributes, String nameAttributeKey
-			,String name, String email, String nickname) {
+			,String name, String email) {
 		this.attributes = attributes;
 		this.nameAttributeKey = nameAttributeKey;
 		this.name = name;
 		this.email = email;
-		this.nickname = nickname;
+		//this.nickname = nickname;
 	}
 	
 	public static OAuthAttributes of(String registrationId, String userNameAttributeName,
@@ -36,7 +37,7 @@ public class OAuthAttributes {
 		return OAuthAttributes.builder()
 				.name((String) attributes.get("name"))
 				.email((String) attributes.get("email"))
-				.nickname((String)attributes.get("nickname"))
+				//.nickname((String)attributes.get("nickname"))
 				.attributes(attributes)
 				.nameAttributeKey(userNameAttributeName)
 				.build();
@@ -45,7 +46,7 @@ public class OAuthAttributes {
 		return Member.builder()
 				.name(name)
 				.email(email)
-				.nickname(nickname)
+				.role(Role.USER)
 				.build();
 	}
 

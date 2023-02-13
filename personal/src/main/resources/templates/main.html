@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <title>What's your color?</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -31,7 +31,8 @@
     						<a class="nav-link py-3 px-0 px-lg-3 rounded" href="/oauth2/authorization/google">구글로 로그인</a>
     					</li> 
     					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
-    						<a class="nav-link py-3 px-0 px-lg-3 rounded" href="/oauth2/authorization/google">hi</a>
+    						<a class="nav-link py-3 px-0 px-lg-3 rounded">Logged as [[${ memberName }]]</a>
+    						<a class="nav-link py-3 px-0 px-lg-3 rounded" href="/logout">Logout</a> 
     					</li>	    					    				                    	                   
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#fashion">오늘은 뭐 입지?</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
@@ -44,7 +45,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="/static/assets/img/avataaars.svg" alt="..." />
+                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">What's your color?</h1>
                 <!-- Icon Divider-->
