@@ -29,6 +29,7 @@
                     <ul class="navbar-nav ms-auto">                    
     					<li class="nav-item mx-0 mx-lg-1" th:if="${memberName == null}">
     						<a class="nav-link py-3 px-0 px-lg-3 rounded" href="/oauth2/authorization/google">구글로 로그인</a>
+    						<a class="nav-link py-3 px-0 px-lg-3 rounded" href="/oauth2/authorization/naver">네이버로 로그인</a>
     					</li> 
     					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
     						<a class="nav-link py-3 px-0 px-lg-3 rounded">Logged as [[${ memberName }]]</a>
