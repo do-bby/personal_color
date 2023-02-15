@@ -28,7 +28,12 @@ public class MemberController {
 		if(member != null) {
 			model.addAttribute("member",member);			
 		}
+		
 		return "mypage";
 	}
+	
+	
+	//fast api로 요청 , 받은 이미지 or rgb값을 저장해서 결과 보여주는 html로 return
+	//db에 저장되있는 rgb값에 분류된 퍼스널컬러와 비교하여 member.pnum에 저장 
 
 }
