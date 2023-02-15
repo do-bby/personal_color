@@ -26,5 +26,5 @@ public class Personal {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PERSONAL_SEQ_GENERATOR")
 	private int pnum;
 	private String tonename;
-	//패션-퍼스널 => ManytoOne, 퍼스널이미지-퍼스널 => OnetoOne, 회원-퍼스널=> OnetoOne
+	//패션-퍼스널 => ManytoOne, 컬러-퍼스널 => ManytoOne, 회원-퍼스널=> OnetoOne
 }
