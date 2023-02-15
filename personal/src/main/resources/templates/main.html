@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>What's your color?</title>
+        <title>Color Insight</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -14,14 +14,13 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        
+        <link href="css/styles.css" rel="stylesheet" />        
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">What's your color?</a>
+                <a class="navbar-brand text-black" href="#page-top">Color Insight</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -29,16 +28,21 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">                    
     					<li class="nav-item mx-0 mx-lg-1" th:if="${memberName == null}">
-    						<a class="nav-link py-3 px-0 px-lg-3 rounded" href="/oauth2/authorization/google">구글로 로그인</a>
-    						<a class="nav-link py-3 px-0 px-lg-3 rounded" href="/oauth2/authorization/naver">네이버로 로그인</a>
-    					</li> 
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/oauth2/authorization/google">구글로 로그인</a>    						
+    					</li>
+    					<li class="nav-item mx-0 mx-lg-1" th:if="${memberName == null}">
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/oauth2/authorization/naver">네이버로 로그인</a>    						
+    					</li>      					
     					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
-    						<a class="nav-link py-3 px-0 px-lg-3 rounded">Logged as [[${ memberName }]]</a>
-    						<a class="nav-link py-3 px-0 px-lg-3 rounded" href="/logout">Logout</a> 
-    					</li>	    					    				                    	                   
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#fashion">오늘은 뭐 입지?</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>                        
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded">Logged as [[${ memberName }]]</a>    						    						    				
+    					</li>
+    					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/logout">Logout</a>    						    						    				
+    					</li>    					
+    					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/mypage">My Page</a></li>    						    						    				    					    					    						    					    				                    	                
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="#fashion">오늘은 뭐 입지?</a>                                               
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="#about">About</a></li>                                               
                     </ul>
                 </div>
             </div>
@@ -47,7 +51,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
+                <img class="masthead-avatar mb-5" src="assets/img/logo.png" alt="..." />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">What's your color?</h1>
                 <!-- Icon Divider-->
@@ -66,8 +70,9 @@
                 <!-- Icon Divider-->
                 <div>
 	                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-						<div class="carousel-inner">
-						<div class="carousel-item active"><img class="d-block w-100" src="https://source.unsplash.com/user/erondu/1600x900" alt="..." /></div>
+						<div class="carousel-inner">						
+						<div class="carousel-item active"><img class="d-block w-100" src="assets/img/portfolio/youtuber1.png" alt="..." /></div>
+						<div class="carousel-item"><img class="d-block w-100" src="assets/img/portfolio/youtuber2.png" alt="..." /></div>
 						<div class="carousel-item"><img class="d-block w-100" src="https://source.unsplash.com/collection/190727/1600x900" alt="..." /></div>
 						<div class="carousel-item"><img class="d-block w-100" src="https://source.unsplash.com/WLUHO9A_xik/1600x900" alt="..." /></div>
 						</div>

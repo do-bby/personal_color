@@ -15,12 +15,20 @@ import lombok.RequiredArgsConstructor;
 public class MemberController {
 	
 	@GetMapping("/")
-	public String main(Model model, @LoginUser SessionMember member) {
+	public String login(Model model, @LoginUser SessionMember member) {
 		
 		if(member != null) {
 			model.addAttribute("memberName",member.getName());
 		}
 		return "main";
+	}
+	
+	@GetMapping("/mypage")
+	public String mypage(Model model, @LoginUser SessionMember member) {
+		if(member != null) {
+			model.addAttribute("member",member);			
+		}
+		return "mypage";
 	}
 
 }
