@@ -23,6 +23,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.anyRequest().authenticated()
 			.and()
 			.logout().logoutSuccessUrl("/") // 로그아웃 기능에 대한 여러 설정 진입점
+			.invalidateHttpSession(true) // 세션 무효화
+            .clearAuthentication(true)
+            .deleteCookies("JSESSIONID")
 			.and()
 				.oauth2Login()
 					.userInfoEndpoint()
