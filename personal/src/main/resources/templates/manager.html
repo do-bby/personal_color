@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <title>관리자 페이지</title>
+      <!-- Favicon-->
+     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+     <!-- Font Awesome icons (free version)-->
+     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+     <!-- Google fonts-->
+     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+     <!-- Core theme CSS (includes Bootstrap)-->
+     <link href="css/styles.css" rel="stylesheet" />        
+ </head>
+    <body id="page-top">
+        <!-- Navigation-->
+      	<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-black" href="#page-top" OnClick="location.href ='/'">Color Insight</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">                    
+    					<li class="nav-item mx-0 mx-lg-1" th:if="${memberName == null}">
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/oauth2/authorization/google">구글로 로그인</a>    						
+    					</li>
+    					<li class="nav-item mx-0 mx-lg-1" th:if="${memberName == null}">
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/oauth2/authorization/naver">네이버로 로그인</a>    						
+    					</li>      					
+    					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded">Logged as [[${ memberName }]]</a>    						    						    				
+    					</li>
+    					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/logout">Logout</a>    						    						    				
+    					</li>    					
+    					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/mypage">My Page</a></li>    						    						    				    					    					    						    					    				                    	                
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="#fashion">오늘은 뭐 입지?</a>                                               
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="#about">About</a></li>                                               
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="page-section portfolio" id="fashion" >
+			<form  th:unless="${ msg }" action="/uploadFile"  enctype="multipart/form-data" method="post">
+		    	<input type="file" name="mfile" multiple/>
+		    	<input type="submit" value="파일올리기"/>
+			</form>
+		<h2 th:if="${ msg }" th:utext="${ msg }"></h2>
+		
+		<form action="/uploadFile" method="post" enctype="multipart/form-data">
+     	  
+           <h4>단일 파일 업로드</h4>
+           <input type="file" name="file">
+                   	
+           <h4>다중 파일 업로드</h4>
+           <input type="file" multiple="multiple" name="files">
+			
+	   <input type="submit"/>
+		</form>
+        </section>
+</body>
+</html>
