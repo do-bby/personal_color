@@ -27,19 +27,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">                    
-    					<li class="nav-item mx-0 mx-lg-1" th:if="${member == null}">
+    					<li class="nav-item mx-0 mx-lg-1" th:if="${pmember == null}">
     						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/oauth2/authorization/google">구글로 로그인</a>    						
     					</li>
-    					<li class="nav-item mx-0 mx-lg-1" th:if="${member == null}">
+    					<li class="nav-item mx-0 mx-lg-1" th:if="${pmember == null}">
     						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/oauth2/authorization/naver">네이버로 로그인</a>    						
     					</li>      					
-    					<li class="nav-item mx-0 mx-lg-1" th:unless="${member == null}">
-    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded">Logged as [[${ member.getName }]]</a>    						    						    				
+    					<li class="nav-item mx-0 mx-lg-1" th:unless="${pmember == null}">
+    						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded">Logged as [[${ pmember.getName }]]</a>    						    						    				
     					</li>
-    					<li class="nav-item mx-0 mx-lg-1" th:unless="${member == null}">
+    					<li class="nav-item mx-0 mx-lg-1" th:unless="${pmember == null}">
     						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/logout">Logout</a>    						    						    				
     					</li>    					
-    					<li class="nav-item mx-0 mx-lg-1" th:unless="${member == null}">
+    					<li class="nav-item mx-0 mx-lg-1" th:unless="${pmember == null}">
     						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/mypage">My Page</a></li>    						    						    				    					    					    						    					    				                    	                
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/#fashion">오늘은 뭐 입지?</a>                                               
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/#about">About</a></li>                                               
@@ -62,16 +62,19 @@
                         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                             <!-- Name-->
                             <div class="form-floating mb-3">                            	
-                                <input class="form-control" id="name" type="text" th:value="${ member.getName}"/>                                
+                                <input class="form-control" id="name" type="text" th:value="${ pmember.getName}"/>                                
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <!-- Email address-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" th:value="${ member.getEmail}"/>                                
+                                <input class="form-control" id="email" type="email" th:value="${ pmember.getEmail}"/>                                
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
-                                              
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="text" type="text" th:value="${ pmember.getPersonal.getTonename}"/>                                                                
+                            </div>
+                                      
                         </form>
                     </div>
                 </div>
