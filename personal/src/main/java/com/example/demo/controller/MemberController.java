@@ -35,7 +35,7 @@ public class MemberController {
 	@GetMapping("/mypage")
 	public String mypage(Model model, @LoginUser SessionMember member) {
 		
-		Member pmember = memberRepository.findByName(member.getName());
+		Member pmember = memberRepository.findByEmail(member.getEmail()).orElse(null);
 		if(member != null) {
 			model.addAttribute("pmember",pmember);			
 		}		
@@ -46,17 +46,16 @@ public class MemberController {
 	@GetMapping("/result")
 	public String viewTone(Model model, @LoginUser SessionMember member) {
 		//model로 부터 온 값을 decode
-		int pn = 4;
+		int pn = 1;//임의의 pnum
 		Personal p = personalRepository.findByPnum(pn); 
 		System.out.println(p.getTonename());
 		System.out.println(member.getName());
-		//넘어온 personal을 통해 pnum 멤버에 저장, pnum을 통해 헥스코드 보여주기(ex)pnum=1인 hexcode값)
-		//Member pmember = memberRepository.findByMnum(member.getMnum());		
-//		pmember.setPersonal(p);
-//		//p1은 봄웜 => p1객체로 setPersonal(p1)
-//		if(pmember != null) {
-//			model.addAttribute("pmember",pmember);			
-//		}
+
+		Member pmember = memberRepository.findByEmail(member.getEmail()).orElse(null);		
+		pmember.setPersonal(p);
+		if(pmember != null) {
+			model.addAttribute("pmember",pmember);			
+		}
 		return "result";
 	}
 	
