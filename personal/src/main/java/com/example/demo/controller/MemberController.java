@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.config.auth.LoginUser;
 import com.example.demo.config.auth.SessionMember;
+import com.example.demo.entity.Color;
 import com.example.demo.entity.Member;
 import com.example.demo.entity.Personal;
+import com.example.demo.repository.ColorRepository;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.repository.PersonalRepository;
 
@@ -21,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class MemberController {
 	private final MemberRepository memberRepository;
 	private final PersonalRepository personalRepository;
+	private final ColorRepository colorRepository;
 	//메인페이지 이동
 	@GetMapping("/")
 	public String login(Model model, @LoginUser SessionMember member) {
@@ -36,8 +39,11 @@ public class MemberController {
 	public String mypage(Model model, @LoginUser SessionMember member) {
 		
 		Member pmember = memberRepository.findByEmail(member.getEmail()).orElse(null);
+		List<Color> colorlist = colorRepository.findByPnum(pmember.getPersonal().getPnum());		
+
 		if(member != null) {
-			model.addAttribute("pmember",pmember);			
+			model.addAttribute("pmember",pmember);
+			model.addAttribute("colorlist",colorlist);
 		}		
 
 		return "mypage";

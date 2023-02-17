@@ -16,6 +16,7 @@ public interface ColorRepository extends JpaRepository<Color,Integer>{
 
 	@Query("select p from Color c join c.personal p where c.hexcode = :hx")
 	public Personal findByHexcode(@Param("hx") String hexcode);
-
+	@Query("select c from Color c join c.personal p where p.pnum = :pnum")
+	public List<Color> findByPnum(@Param("pnum") int pnum);
 	
 }
