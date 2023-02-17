@@ -6,4 +6,6 @@ import com.example.demo.entity.Personal;
 
 public interface PersonalRepository extends JpaRepository<Personal,Integer>{
 
+	public Personal findByPnum(int pnum);
+
 }

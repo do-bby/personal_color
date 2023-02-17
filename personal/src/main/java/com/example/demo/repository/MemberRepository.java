@@ -11,5 +11,6 @@ import com.example.demo.entity.Member;
 
 public interface MemberRepository extends JpaRepository<Member, Integer> {
 	Optional<Member> findByEmail(String email);
+	public Member findByMnum(int mnum);
 	public Member findByName(String name);
 }
