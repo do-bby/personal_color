@@ -59,13 +59,6 @@ public class MemberController {
 		return "result";
 	}
 	
-	//패션페이지 이동
-	@GetMapping("/clothes")
-	public String clothes(@LoginUser SessionMember member) {
-	
-		return "clothes";
-	}
-	
 	//fast api로 요청 , 받은 이미지 or rgb값을 저장해서 결과 보여주는 html로 return
 
 }
