@@ -59,6 +59,7 @@ public class MemberController {
 		return "result";
 	}
 	
+	
 	//fast api로 요청 , 받은 이미지 or rgb값을 저장해서 결과 보여주는 html로 return
 
 }
