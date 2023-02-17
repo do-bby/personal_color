@@ -85,10 +85,29 @@
 					</div>
             	</div>
             	<div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="/clothes">                        
+                    <a class="btn btn-xl btn-outline-light" onclick="showLogin()" style="background-color:red">             
                                                       패션 알아보기
                     </a>
                 </div>
+                <script th:inline="javascript">
+			      function showLogin() {
+			        var memberName = /*[[${memberName}]]*/ null;
+			        if (memberName == null) {
+			          alert('로그인을 하세요');
+			         // 서브 창을 생성하여 로그인 버튼을 보여줌
+			         // var subWindow = window.open('', 'subWindow', 'width=300,height=200,left=' + (screen.width / 2 - 150) + ',top=' + (screen.height / 2 - 100));
+			         // subWindow.document.write('<a href="/oauth2/authorization/google" onclick="window.opener.location.reload(); ">구글로그인</a><br>');
+			         // subWindow.document.write('<a href="/oauth2/authorization/naver" onclick="window.opener.location.reload(); ">네이버로그인</a>');
+			         // subWindow.moveTo((screen.width - subWindow.outerWidth) / 2, (screen.height - subWindow.outerHeight) / 2);
+			        }else{
+			        	location.href = '/clothes';
+			        }
+			      }
+			
+			      //function loginWithProvider(url) {
+			      //  window.location.href = url;
+			      //}
+			    </script>
             </div>
         </section>
         <!-- About Section-->
