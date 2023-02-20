@@ -54,13 +54,15 @@ public class MemberController {
 		//model로 부터 온 값을 decode
 		int pn = 1;//임의의 pnum
 		Personal p = personalRepository.findByPnum(pn); 
-		System.out.println(p.getTonename());
-		System.out.println(member.getName());
 
 		Member pmember = memberRepository.findByEmail(member.getEmail()).orElse(null);		
 		pmember.setPersonal(p);
+		//로그인 된 멤버의 personal 저장
+		List<Color> colorlist = colorRepository.findByPnum(pn);
+		//결과 창에서 해당 pnum의 hexcode컬러값을 가져옴
 		if(pmember != null) {
-			model.addAttribute("pmember",pmember);			
+			model.addAttribute("pmember",pmember);
+			model.addAttribute("colorlist",colorlist);
 		}
 		return "result";
 	}
