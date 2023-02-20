@@ -24,15 +24,7 @@ public class MemberController {
 	private final MemberRepository memberRepository;
 	private final PersonalRepository personalRepository;
 	private final ColorRepository colorRepository;
-	//메인페이지 이동
-	@GetMapping("/")
-	public String login(Model model, @LoginUser SessionMember member) {
-		
-		if(member != null) {
-			model.addAttribute("memberName",member.getName());
-		}
-		return "main";
-	}
+	
 	
 	//마이페이지 이동
 	@GetMapping("/mypage")
