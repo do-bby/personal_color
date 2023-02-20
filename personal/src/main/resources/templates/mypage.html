@@ -74,50 +74,13 @@
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="text" type="text" th:value="${ pmember.getPersonal.getTonename}"/>                                                                
                             </div>
-                            <div class="form-floating mb-3">
-						    	<div id="palletBox" class="pallet">
-									<ul>
-										<li th:each="color : ${colorlist}" th:text="${color.hexcode}"></li>
-									</ul>	
-						    	</div>
-						    	<script th:inline="javascript">
-							        /*<![CDATA[*/
-							        var c = [
-							            /*[# th:each="color, row : ${colorlist}"]*/
-							            [
-							                [[${color.hexcode}]],
-							                /*[# th:if="${row.index < 7}"]*/
-							                ,
-							                /*[/]*/
-							            ],
-							            /*[/]*/
-							            /*[# th:if="${#lists.size(colorlist) < 6}"]*/
-							            /* 추가적인 빈 행을 채우기 위해, 만약 colorlist 크기가 6보다 작으면 빈 행을 추가합니다. */
-							            [
-							                null,null,null,null,null,null,null,null
-							            ],
-							            /*[/]*/
-							        ];
-							
-							        var tag = "";
-							        for(i=0; i<c.length; i++){
-							          for(j=0; j<c[i].length; j++){
-							            tag += "<div id="+c[i][j]+" class='colorBox'></div>";
-							          }
-							        }
-							        //파레트 파싱
-							        document.getElementById("palletBox").innerHTML = tag;
-
-							        //색상 입히기
-							        var colorBox = document.getElementsByClassName("colorBox");
-							        for(i=0; i<colorBox.length; i++){
-							          colorBox[i].style.background = colorBox[i].id;
-							        }
-							      }
-							        /*]]>*/
-							    </script>
-					    	</div>
-                                      
+                            <table>
+							  <tbody>
+							    <tr th:each="row : ${#numbers.sequence(0, 5)}">							      
+							      <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" th:style="'background-color:' + ${color.hexcode} + '; height:50px; width:100px;'"></td>
+							    </tr>
+							  </tbody>
+							</table>
                         </form>
                     </div>
                 </div>

@@ -36,3 +36,5 @@ public class Color {
 	private Personal personal;
 
 }
+
+
