@@ -41,7 +41,7 @@
     					</li>    					
     					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
     						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/mypage">My Page</a></li>    						    						    				    					    					    						    					    				                    	                
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/clothes">오늘은 뭐 입지?</a>                                               
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="#fashion">오늘은 뭐 입지?</a>                                               
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="#about">About</a></li>                                               
                     </ul>
                 </div>
@@ -53,16 +53,6 @@
 			    <div><p class="lead">봄 웜톤은 밝고 화사한 분위기, 높은 채도의 따듯한 색상이 어울리는 타입입니다.</p></div> 
 			    <div><img class="masthead-heading text-uppercase mb-0" src="assets/img/portfolio/pccs.png" alt="..." /></div>
 			    <div><p class="lead">가을 웜톤은 차분하고 성숙한 이미지, 저채도 색상이 잘 어울리는 타입입니다.</p></div> 
-	        	<div class="form-floating mb-3">
-                    <input class="form-control" id="text" type="text" th:value="${ memberinfo.getPersonal.getTonename}"/>                                                                
-                </div>
-	        	<table>
-				  <tbody>
-				    <tr th:each="row : ${#numbers.sequence(0, 5)}">							      
-				      <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" th:style="'background-color:' + ${color.hexcode} + '; height:50px; width:100px;'"></td>
-				    </tr>
-				  </tbody>
-				</table>
 	        </div>
         </section>
 </body>

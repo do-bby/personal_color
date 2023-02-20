@@ -40,8 +40,7 @@ public class ManagerController {
 		for (MultipartFile mfile : list) {
 			String fileName = mfile.getOriginalFilename();
 			try {
-				//spring boot는 절대경로를 설정해야 동작된다. getRealPath 안됨
-				String uploadDirectory = System.getProperty("user.home") + "/git/personal_color/personal/src/main/resources/static/assets/img/clothesimg/" + fileName;
+				String uploadDirectory = System.getProperty("user.home") + "git/personal_color/personal/src/main/resources/static/assets/" + fileName;
 				File f = new File(uploadDirectory);
 				if (f.exists()) {
 					resultStr += fileName + " : 파일이 이미 존재해요!!<br>";
