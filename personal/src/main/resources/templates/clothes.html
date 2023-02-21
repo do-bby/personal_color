@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<style>
+  td.color-cell {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+</style>
 <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -58,8 +65,22 @@
                 </div>
 	        	<table>
 				  <tbody>
-				    <tr th:each="row : ${#numbers.sequence(0, 5)}">							      
-				      <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" th:style="'background-color:' + ${color.hexcode} + '; height:50px; width:100px;'"></td>
+				    <tr th:each="row : ${#numbers.sequence(0, 2)}">
+				      <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" 
+				          th:style="'background-color:' + ${color.hexcode}"
+				          class="color-cell">
+				      </td>
+				    </tr>
+				  </tbody>
+				</table>
+				<br>
+				<table>
+				  <tbody>
+				    <tr th:each="row : ${#numbers.sequence(3, 5)}">
+				      <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" 
+				          th:style="'background-color:' + ${color.hexcode}"
+				          class="color-cell">
+				      </td>
 				    </tr>
 				  </tbody>
 				</table>

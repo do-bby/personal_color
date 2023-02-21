@@ -30,6 +30,8 @@ public class Color {
 	private int cnum;
 	@Column
 	private String hexcode;
+	@Column
+	private String pccs;
 	
 	@ManyToOne
 	@JoinColumn(name = "pnum")
