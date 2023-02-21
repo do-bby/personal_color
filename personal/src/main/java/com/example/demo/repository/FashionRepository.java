@@ -14,6 +14,7 @@ import com.example.demo.entity.Personal;
 
 public interface FashionRepository extends JpaRepository<Fashion,Integer>{
 	
+	//pnum 받아서 list형태로 fashion 리턴
 	public List<Fashion> findByPersonalPnum(int pnum);
 	
 }

@@ -47,14 +47,28 @@
                 </div>
             </div>
         </nav>
-        <section class="page-section portfolio" id="fashion" >
-			<form  th:unless="${ msg }" action="/uploadFile"  enctype="multipart/form-data" method="post">
-		    	<input type="file" name="mfile" multiple/>
-		    	<input type="submit" value="파일올리기"/>
-			</form>
-		<h2 th:if="${ msg }" th:utext="${ msg }"></h2>
-		
-		<form action="/uploadFile" method="post" enctype="multipart/form-data">
+        <br><br>
+        <div class="text-center mt-4">
+			<section class="page-section portfolio" id="fashion" >
+				<form  th:unless="${ msg }" action="/uploadFile"  enctype="multipart/form-data" method="post">
+			    	<input type="file" name="mfile" multiple/><br>
+			    	<input type="text" name="situation" id="situation" placeholder="상황입력" required><br>
+			    	<input type="text" name="situationnum" id="situationnum"  placeholder="상황번호입력" required><br>
+			    	<select name="tone" id="tone">
+						<option value="">톤선택</option>
+						<option value="1">봄웜톤</option>
+						<option value="2">여름쿨톤</option>
+						<option value="3">가을웜톤</option>
+						<option value="4">겨울쿨톤</option>
+					</select><br> 
+			    	<input type="submit" value="업로드"/>
+				</form>
+			<h2 th:if="${ msg }" th:utext="${ msg }"></h2>
+			<a th:href="${link}">매니저 페이지로 돌아가기</a>
+			</section>
+        </div>
+        
+		<!-- <form action="/uploadFile" method="post" enctype="multipart/form-data">
      	  
            <h4>단일 파일 업로드</h4>
            <input type="file" name="file">
@@ -63,7 +77,7 @@
            <input type="file" multiple="multiple" name="files">
 			
 	   <input type="submit"/>
-		</form>
-        </section>
+		</form> -->
+        
 </body>
 </html>
