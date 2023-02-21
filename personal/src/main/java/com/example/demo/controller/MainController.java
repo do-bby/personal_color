@@ -41,11 +41,10 @@ public class MainController {
 	
 	//웹캠 연결
 	@GetMapping("/camera")
-	public String webcam() {
-		return "webcam";
-	}
-	@GetMapping("/image")
-	public String w() {
+	public String webcam(Model model, @LoginUser SessionMember member) {
+		if(member != null) {
+			model.addAttribute("memberName",member.getName());
+		}
 		return "webcam";
 	}
 	
