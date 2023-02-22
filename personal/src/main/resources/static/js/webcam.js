@@ -1,4 +1,4 @@
- var myVideoStream = document.getElementById('myVideo')     // make it a global variable
+ var myVideoStream = document.getElementById('myVideo')     
   var myStoredInterval = 0
   
 function getVideo(){
@@ -22,7 +22,7 @@ function getVideo(){
 	  
 	  // 이미지 데이터를 추출하여 전송
 	  var imageData = myCanvasElement.toDataURL('image/png');
-	  fetch('http://localhost:8000/image', {
+	  fetch('http://localhost:5000/image', {
 	    method: 'POST',
 	    headers: {
 	      'Content-Type': 'application/json'
@@ -32,12 +32,11 @@ function getVideo(){
 	    })
 	  })
 	  .then(function(response) {
-	    console.log('이미지 전송 완료');
+	    console.log('성공');
+	    console.log(imageData);
 	  })
 	  .catch(function(error) {
-	    console.error('이미지 전송 실패', error);
+	    console.error('실패', error);
 	  });
 
 }
-  
-  

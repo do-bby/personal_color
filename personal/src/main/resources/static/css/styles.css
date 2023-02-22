@@ -3017,6 +3017,11 @@ textarea.form-control-lg {
     transition: none;
   }
 }
+td.color-cell {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
 .btn:hover {
   color: #212529;
 }

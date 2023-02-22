@@ -49,19 +49,19 @@ public class MainController {
 	}
 	
 	//웹캠 연결
-	@PostMapping("/image")
-	public ResponseEntity<String> saveImage(@RequestBody Map<String, Object> data) {
-	    String imageData = (String) data.get("image");
-	    byte[] decodedImageData = Base64.getDecoder().decode(imageData.split(",")[1]);
-	    try {
-	        FileOutputStream outputStream = new FileOutputStream("saved-image.png");
-	        outputStream.write(decodedImageData);
-	        outputStream.close();
-	        System.out.println(decodedImageData);
-	        return ResponseEntity.ok("이미지 저장 완료");
-	    } catch (IOException e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("이미지 저장 실패");
-	    }
-	}
+//	@PostMapping("/image")
+//	public ResponseEntity<String> saveImage(@RequestBody Map<String, Object> data) {
+//	    String imageData = (String) data.get("image");
+//	    byte[] decodedImageData = Base64.getDecoder().decode(imageData.split(",")[1]);
+//	    try {
+//	        FileOutputStream outputStream = new FileOutputStream("saved-image.png");
+//	        outputStream.write(decodedImageData);
+//	        outputStream.close();
+//	        System.out.println(decodedImageData);
+//	        return ResponseEntity.ok("이미지 저장 완료");
+//	    } catch (IOException e) {
+//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("이미지 저장 실패");
+//	    }
+//	}
 
 }
