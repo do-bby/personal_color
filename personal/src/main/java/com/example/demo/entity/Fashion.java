@@ -29,6 +29,7 @@ public class Fashion {
 	private String situation;
 	private int situnum;
 	private String clotheimg;
+	private String clotheinfo;
 	private int sex;
 	@ManyToOne
 	@JoinColumn(name = "pnum")

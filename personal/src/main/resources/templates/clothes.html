@@ -56,10 +56,12 @@
         </nav>
         <section class="page-section portfolio" id="fashion" >
 	        <div class="container">
-		        <div><img class="masthead-heading text-uppercase mb-0" src="assets/img/portfolio/pccs.png" alt="..." /></div>
-			    <div><p class="lead">봄 웜톤은 밝고 화사한 분위기, 높은 채도의 따듯한 색상이 어울리는 타입입니다.</p></div> 
-			    <div><img class="masthead-heading text-uppercase mb-0" src="assets/img/portfolio/pccs.png" alt="..." /></div>
-			    <div><p class="lead">가을 웜톤은 차분하고 성숙한 이미지, 저채도 색상이 잘 어울리는 타입입니다.</p></div> 
+			    <div th:each="item : ${fashionlist}">
+				    <img class="masthead-heading text-uppercase mb-0" th:src="@{${'assets/img/clothesimg/' + item.clotheimg}}" alt="..." />
+				    <div>
+				        <p class="lead" th:text="${item.clotheinfo}"></p>
+				    </div> 
+				</div>	
 	        	<div class="form-floating mb-3">
                     <input class="form-control" id="text" type="text" th:value="${ memberinfo.getPersonal.getTonename}"/>                                                                
                 </div>

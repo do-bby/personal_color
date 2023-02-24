@@ -38,9 +38,10 @@ public class ManagerController {
 	ServletContext context; 
 	//매니저 페이지로 이동
 	@RequestMapping("/manager")
-	public String formFile(@LoginUser SessionMember member) {
+	public String formFile(Model model, @LoginUser SessionMember member) {
 		String page = null;
 		if(member != null) {
+			model.addAttribute("memberName",member.getName());
 			page = "manager";
 		}else {
 			page = "main";
@@ -52,7 +53,9 @@ public class ManagerController {
 	public ModelAndView uploadFile(@RequestParam("mfile") MultipartFile mfile, 
 	                               @RequestParam("situation") String situation,
 	                               @RequestParam("situationnum") int situationnum,
-	                               @RequestParam(value="tone", required=false) int tone) {
+	                               @RequestParam(value="clotheinfo", required=false) String clotheinfo,
+	                               @RequestParam(value="tone", required=false) int tone,
+	                               @RequestParam(value="sex", required=false) int sex) {
 	    ModelAndView mav = new ModelAndView();
 	    System.out.println("1개가 업로드 됨");
 	    String resultStr = "";
@@ -63,6 +66,8 @@ public class ManagerController {
 	    fashion.setSituation(situation);
 	    fashion.setSitunum(situationnum);
 	    fashion.setClotheimg(fileName);
+	    fashion.setClotheinfo(clotheinfo);
+	    fashion.setSex(sex);
 	    Personal personal = new Personal();
 	    personal = personalRepository.findByPnum(tone);
 	    fashion.setPersonal(personal);
