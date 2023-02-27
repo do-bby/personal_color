@@ -16,5 +16,10 @@ public interface FashionRepository extends JpaRepository<Fashion,Integer>{
 	
 	//pnum 받아서 list형태로 fashion 리턴
 	public List<Fashion> findByPersonalPnum(int pnum);
+	//상황만 조회해옴
+	@Query("SELECT DISTINCT f.situation, f.situnum FROM Fashion f")
+	List<Object[]> findDistinctSituationAndSitunum();
+	//중복제거
+	public List<Fashion> findDistinctByPersonalPnumAndSexAndSitunum(int pnum, int sex, int situnum);
 	
 }
