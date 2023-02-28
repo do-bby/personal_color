@@ -64,6 +64,11 @@
 		    <groupId>org.springframework.session</groupId>
 		    <artifactId>spring-session-jdbc</artifactId>
 		</dependency>
+		<dependency>
+		  <groupId>org.json</groupId>
+		  <artifactId>json</artifactId>
+		  <version>20180813</version>
+		</dependency>
 	</dependencies>
 
 	<build>

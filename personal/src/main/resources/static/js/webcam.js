@@ -20,7 +20,7 @@ function getVideo(){
 	  var myCTX = myCanvasElement.getContext('2d');
 	  myCTX.drawImage(myVideoStream, 0, 0, myCanvasElement.width, myCanvasElement.height);
 	  
-	  // 이미지 데이터를 추출하여 전송
+	  // 이미지 데이터를 추출하여 전송 192.168.80.26
 	  var imageData = myCanvasElement.toDataURL('image/png');
 	  fetch('http://localhost:5000/image', {
 	    method: 'POST',
