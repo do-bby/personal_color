@@ -53,7 +53,14 @@ public class MainController {
 		return "images";
 	}
 	
-	
+	//이미지 업로드 연결
+	@GetMapping("/lips")
+	public String lips(Model model, @LoginUser SessionMember member) {
+		if(member != null) {
+			model.addAttribute("memberName",member.getName());
+		}
+		return "lips";
+	}	
 	//웹캠 연결
 //	@PostMapping("/image")
 //	public ResponseEntity<String> saveImage(@RequestBody Map<String, Object> data) {

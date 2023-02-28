@@ -34,6 +34,7 @@ public class MemberController {
    private final PersonalRepository personalRepository;
 
    private int output;
+   private String output2;
    
    //마이페이지 이동
    @GetMapping("/mypage")
@@ -61,7 +62,21 @@ public class MemberController {
       return ResponseEntity.ok("완료");
 
    }
+   @PostMapping("/output2")
+   public ResponseEntity<String> viewLip(@RequestBody Map<String,String> request) {
+      
+      String data = request.get("data");
+      
+//      byte[] decodedBytes = Base64.getDecoder().decode(encodedData);
+//      String decodedResult = new String(encodedData);      
+      JSONObject jsonObject = new JSONObject(data);      
+      output= jsonObject.getInt("test");
+      output2 = jsonObject.getString("image");
+      System.out.println(output);
+      System.out.println(output2);
+      return ResponseEntity.ok("완료");
 
+   }
       
    @GetMapping("/result")
    public String result(Model model, @LoginUser SessionMember member) {
@@ -82,6 +97,25 @@ public class MemberController {
       return "result";
    }
    
+   @GetMapping("/result2")
+   public String result2(Model model, @LoginUser SessionMember member) {
+
+      
+      Personal p = personalRepository.findByPnum(output);
+      System.out.println(p.getPnum());
+      
+      Member pmember = memberRepository.findByEmail(member.getEmail()).orElse(null);
+      System.out.println(pmember.getEmail());
+      pmember.setPersonal(p);
+      List<Color> colorlist = colorRepository.findByPnum(pmember.getPersonal().getPnum());
+      //결과 창에서 해당 pnum의 hexcode컬러값을 가져옴
+      if(pmember != null) {
+         model.addAttribute("pmember",pmember);
+         model.addAttribute("colorlist",colorlist);
+         model.addAttribute("lip",output2);
+      }
+      return "result2";
+   }
    //fast api로 요청 , 받은 이미지 or rgb값을 저장해서 결과 보여주는 html로 return
 
 }
