@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example.demo.config.auth.LoginUser;
 import com.example.demo.config.auth.SessionMember;
 import com.example.demo.entity.Color;
+import com.example.demo.entity.Colorinfo;
 import com.example.demo.entity.Member;
 import com.example.demo.entity.Personal;
 import com.example.demo.repository.ColorRepository;
+import com.example.demo.repository.ColorinfoRepository;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.repository.PersonalRepository;
 
@@ -32,6 +34,7 @@ public class MemberController {
    private final MemberRepository memberRepository;   
    private final ColorRepository colorRepository;
    private final PersonalRepository personalRepository;
+   private final ColorinfoRepository colorinfoRepository;
 
    private int output;
    private String output2;
@@ -82,8 +85,13 @@ public class MemberController {
    public String result(Model model, @LoginUser SessionMember member) {
 
       
-      Personal p = personalRepository.findByPnum(output);
-      System.out.println(p.getPnum());
+//    Personal p = personalRepository.findByPnum(output);
+//    System.out.println(p.getPnum());
+//    Colorinfo colorinfo = colorinfoRepository.findByPersonalPnum(output);
+      
+	  //임시로 값 넣음 나중에 완성되면 위에 주석처리된 코드로 실행해야됨
+      Personal p = personalRepository.findByPnum(4);
+      Colorinfo colorinfo = colorinfoRepository.findByPersonalPnum(4);
       
       Member pmember = memberRepository.findByEmail(member.getEmail()).orElse(null);
       System.out.println(pmember.getEmail());
@@ -93,6 +101,7 @@ public class MemberController {
       if(pmember != null) {
          model.addAttribute("pmember",pmember);
          model.addAttribute("colorlist",colorlist);
+         model.addAttribute("colorinfo", colorinfo);
       }
       return "result";
    }
@@ -100,10 +109,10 @@ public class MemberController {
    @GetMapping("/result2")
    public String result2(Model model, @LoginUser SessionMember member) {
 
-      
+
       Personal p = personalRepository.findByPnum(output);
       System.out.println(p.getPnum());
-      
+
       Member pmember = memberRepository.findByEmail(member.getEmail()).orElse(null);
       System.out.println(pmember.getEmail());
       pmember.setPersonal(p);

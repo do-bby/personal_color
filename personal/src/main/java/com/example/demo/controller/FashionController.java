@@ -65,25 +65,5 @@ public class FashionController {
 		}
 		return "clothes";
 	}
-	
-//	//패션페이지 이동
-//	@GetMapping("/clothes")
-//	public String clothes(Model model, @LoginUser SessionMember member) {
-//		//email로 member 객체 불러옴
-//		Member memberinfo = memberRepository.findByEmail(member.getEmail()).orElse(null);
-//		int pnum = memberinfo.getPersonal().getPnum();
-//		//pnum에 해당하는 hexcode 가져옴
-//		List<Color> colorlist = colorRepository.findByPnum(pnum);
-//		//pnum에 해당하는 fashion 이미지들 가져옴
-//		List<Fashion> fashionlist = fashionRepository.findByPersonalPnum(pnum);
-//		//member 값여부체크
-//		if(member != null) {
-//			model.addAttribute("memberName",member.getName());
-//			model.addAttribute("fashionlist", fashionlist);
-//			model.addAttribute("colorlist", colorlist);
-//			model.addAttribute("memberinfo", memberinfo);
-//		}
-//		return "clothes";
-//	}
 
 }

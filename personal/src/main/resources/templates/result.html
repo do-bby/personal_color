@@ -15,6 +15,22 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        
+         <style>
+		    .center-img {
+		      display: block;
+		      margin: 0 auto;
+		    }
+		    
+		    .table-container {
+			  display: flex;
+			  justify-content: center;
+			}
+			
+			table {
+			  border-collapse: collapse;
+			}
+	  	</style>
     </head>
 	<body id="page-top">
         <!-- Navigation-->
@@ -54,19 +70,67 @@
                                               
                 <!-- Icon Divider-->
                 <div class="divider-custom">
-                	<h1 class="masthead-heading text-uppercase mb-0">당신의 퍼스널 컬러는 [[${ pmember.getPersonal.getTonename}]] 입니다.</h1>                    
+                	<h1 class="masthead-heading text-uppercase mb-0">당신의 퍼스널 컬러는 
+                	<th:block th:switch="${pmember.getPersonal.getPnum}">
+					    <span th:case="1" style="color: #77bb4c">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="2" style="color: #eeac00">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="3" style="color: #6f3726">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="4" style="color: #586e61">[[${pmember.getPersonal.getTonename}]]</span>
+					</th:block> 입니다.</h1>                    
                 </div>
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
-                    <div class="col-lg-8 col-xl-7">                        
-                        <table>
-							<tbody>
-							   <tr th:each="row : ${#numbers.sequence(0, 5)}">							      
-							     <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" th:style="'background-color:' + ${color.hexcode} + '; height:50px; width:100px;'"></td>
-							   </tr>
-							</tbody>
-						</table>
-                    </div>
+				  <div class="col-lg-8 col-xl-7 table-container">
+				    <table>
+				      <tbody>
+				        <tr th:each="row : ${#numbers.sequence(0, 5)}">					      
+				          <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" 
+				              th:style="'background-color:' + ${color.hexcode}"
+				              class="color-cell">
+				          </td>
+				        </tr>
+				      </tbody>
+				    </table>
+				  </div>
+				</div>
+                <br>
+                <div>
+               		<th:block th:switch="${pmember.getPersonal.getPnum}">
+					    <img th:case="1" class="center-img"  th:src="@{/assets/img/clothesimg/spring.PNG}" alt="..." />
+					    <img th:case="2" class="center-img"  th:src="@{/assets/img/clothesimg/summer.PNG}" alt="..." />
+					    <img th:case="3" class="center-img"  th:src="@{/assets/img/clothesimg/autumn.PNG}" alt="..." />
+					    <img th:case="4" class="center-img"  th:src="@{/assets/img/clothesimg/winter.PNG}" alt="..." />
+					</th:block>
+					<br>
+                	<h1>
+                	<th:block th:switch="${pmember.getPersonal.getPnum}">
+					    <span th:case="1" style="color: #77bb4c">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="2" style="color: #eeac00">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="3" style="color: #6f3726">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="4" style="color: #586e61">[[${pmember.getPersonal.getTonename}]]</span>
+					</th:block>
+					의 특징</h1><br>
+                	<h2 th:text="${colorinfo.getInfo}"></h2>
+                	<br>
+                	<h1>
+                	<th:block th:switch="${pmember.getPersonal.getPnum}">
+					    <span th:case="1" style="color: #77bb4c">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="2" style="color: #eeac00">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="3" style="color: #6f3726">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="4" style="color: #586e61">[[${pmember.getPersonal.getTonename}]]</span>
+					</th:block>
+                	의 추천컬러</h1><br>
+                	<h2 th:text="${colorinfo.getGood}"></h2>
+                	<br>
+                	<h1>
+                	<th:block th:switch="${pmember.getPersonal.getPnum}">
+					    <span th:case="1" style="color: #77bb4c">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="2" style="color: #eeac00">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="3" style="color: #6f3726">[[${pmember.getPersonal.getTonename}]]</span>
+					    <span th:case="4" style="color: #586e61">[[${pmember.getPersonal.getTonename}]]</span>
+					</th:block>
+                	의 피해야할 컬러</h1><br>
+                	<h2 th:text="${colorinfo.getBad}"></h2>
                 </div>
             </div>
         </section>
