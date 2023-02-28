@@ -50,17 +50,16 @@
         </nav>
         <section class="page-section" id="contact">
             <div class="container">
-            	<div class="divider-custom divider-light">
-	                <video  id="myVideo" width="400" height="300" style="border: 1px solid #ddd;"></video>
+            	<div class="divider-custom divider-light">	                
 					<canvas id="myCanvas" width="400" height="300" style="border: 1px solid #ddd;"></canvas><br>					
-				</div>
-				<div class="divider-custom divider-light">
-					<input class="btn btn-xl btn-outline-light2" type=button value="카메라 연결" onclick="{getVideo()}">
-					<input class="btn btn-xl btn-outline-light2" type=button value="사진 찍기" onclick="{takeSnapshot()}">					
-				</div>
-				<div class="divider-custom divider-light">									
-					<input class="btn btn-xl btn-outline-light2" type=button value="결과보러가기" onclick="location.href='/result';">									
-				</div>          
+				</div>            	
+	                <div class="divider-custom divider-light">
+						<input id = "imageinput" class="btn btn-xl btn-outline-light2" type=file onclick="{upload()}">
+						<input class="btn btn-xl btn-outline-light2" type=button value="측정하기" onclick="{send()}">					
+					</div>
+					<div class="divider-custom divider-light">									
+						<input class="btn btn-xl btn-outline-light2" type=button value="결과보러가기" onclick="location.href='/result';">									
+					</div>  													         
             </div>
         </section>		
 		<script src="js/webcam.js"></script>

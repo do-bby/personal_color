@@ -1,12 +1,23 @@
 package com.example.demo.controller;
 
 
+import java.io.File;
+import java.io.IOException;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.config.auth.LoginUser;
 import com.example.demo.config.auth.SessionMember;
+import com.example.demo.entity.Fashion;
+import com.example.demo.entity.Personal;
 
 import lombok.RequiredArgsConstructor;
 
@@ -33,7 +44,14 @@ public class MainController {
 		return "webcam";
 	}
 	
-		
+	//이미지 업로드 연결
+	@GetMapping("/imageupload")
+	public String imageupload(Model model, @LoginUser SessionMember member) {
+		if(member != null) {
+			model.addAttribute("memberName",member.getName());
+		}
+		return "images";
+	}
 	
 	
 	//웹캠 연결
