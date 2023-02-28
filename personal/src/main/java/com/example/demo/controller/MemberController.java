@@ -83,13 +83,13 @@ public class MemberController {
    public String result(Model model, @LoginUser SessionMember member) {
 
       
-//	    Personal p = personalRepository.findByPnum(output);
-//	    System.out.println(p.getPnum());
-//	    Colorinfo colorinfo = colorinfoRepository.findByPersonalPnum(output);
+	  Personal p = personalRepository.findByPnum(output);
+	  System.out.println(p.getPnum());
+	  Colorinfo colorinfo = colorinfoRepository.findByPersonalPnum(output);
 
 	  //임시로 값 넣음 나중에 완성되면 위에 주석처리된 코드로 실행해야됨
-	  Personal p = personalRepository.findByPnum(4);
-	  Colorinfo colorinfo = colorinfoRepository.findByPersonalPnum(4);
+//	  Personal p = personalRepository.findByPnum(4);
+//	  Colorinfo colorinfo = colorinfoRepository.findByPersonalPnum(4);
       
       Member pmember = memberRepository.findByEmail(member.getEmail()).orElse(null);
       System.out.println(pmember.getEmail());
