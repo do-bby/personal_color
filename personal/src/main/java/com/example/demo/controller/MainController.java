@@ -53,7 +53,7 @@ public class MainController {
 		return "images";
 	}
 	
-	//이미지 업로드 연결
+	//립 이미지 업로드 연결
 	@GetMapping("/lips")
 	public String lips(Model model, @LoginUser SessionMember member) {
 		if(member != null) {
