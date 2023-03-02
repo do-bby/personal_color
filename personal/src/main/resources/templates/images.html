@@ -41,7 +41,7 @@
     					</li>    					
     					<li class="nav-item mx-0 mx-lg-1" th:unless="${memberName == null}">
     						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/mypage">My Page</a></li>    						    						    				    					    					    						    					    				                    	                
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="#fashion">오늘은 뭐 입지?</a>                                               
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="#fashion">OOTD</a>                                               
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="#about">About</a></li>                                               
                     </ul>
                 </div>
@@ -56,10 +56,7 @@
 	                <div class="divider-custom divider-light">
 						<input id = "imageinput" class="btn btn-xl btn-outline-light2" type=file onclick="{upload()}">
 						<input class="btn btn-xl btn-outline-light2" type=button value="측정하기" onclick="{send()}">					
-					</div>
-					<div class="divider-custom divider-light">									
-						<input class="btn btn-xl btn-outline-light2" type=button value="결과보러가기" onclick="location.href='/result';">									
-					</div>  													         
+					</div>					
             </div>
         </section>		
 		<script src="js/webcam.js"></script>

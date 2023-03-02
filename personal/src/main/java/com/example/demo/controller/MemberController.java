@@ -74,7 +74,7 @@ public class MemberController {
       
      output= jsonObject.getInt("result");
       output2 = jsonObject.getString("image");
-      
+      System.out.println(output2);
       return ResponseEntity.ok("완료");
 
    }
@@ -99,6 +99,7 @@ public class MemberController {
       if(pmember != null) {
          model.addAttribute("pmember",pmember);
          model.addAttribute("colorlist",colorlist);
+         model.addAttribute("colorinfo",colorinfo);
       }
       return "result";
    }
@@ -114,7 +115,7 @@ public class MemberController {
       System.out.println(pmember.getEmail());
       pmember.setPersonal(p);
       List<Color> colorlist = colorRepository.findByPnum(pmember.getPersonal().getPnum());
-      //결과 창에서 해당 pnum의 hexcode컬러값을 가져옴
+      //결과 창에서 해당 pnum의 hexcode컬러값을 가져옴      
       if(pmember != null) {
          model.addAttribute("pmember",pmember);
          model.addAttribute("colorlist",colorlist);
