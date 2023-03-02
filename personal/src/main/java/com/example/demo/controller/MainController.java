@@ -27,12 +27,20 @@ public class MainController {
 	
 	//메인페이지 이동
 	@GetMapping("/")
-	public String login(Model model, @LoginUser SessionMember member) {
+	public String main(Model model, @LoginUser SessionMember member) {
 			
 		if(member != null) {
 			model.addAttribute("memberName",member.getName());
 		}
 		return "main";
+	}
+	//메인페이지 이동
+	@GetMapping("/memberlogin")
+	public String login(Model model, @LoginUser SessionMember member) {		
+		if(member != null) {
+			model.addAttribute("memberName",member.getName());
+		}
+		return "memberlogin";
 	}
 	
 	//웹캠 연결

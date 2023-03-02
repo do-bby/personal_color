@@ -41,7 +41,7 @@
     					</li>    					
     					<li class="nav-item mx-0 mx-lg-1" th:unless="${pmember == null}">
     						<a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/mypage">My Page</a></li>    						    						    				    					    					    						    					    				                    	                
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/clothes">오늘은 뭐 입지?</a>                                               
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/clothes">OOTD</a>                                               
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 text-black rounded" href="/#about">About</a></li>                                               
                     </ul>
                 </div>
@@ -74,13 +74,37 @@
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="text" type="text" th:value="${ pmember.getPersonal.getTonename}"/>                                                                
                             </div>
-                            <table>
-							  <tbody>
-							    <tr th:each="row : ${#numbers.sequence(0, 5)}">							      
-							      <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" th:style="'background-color:' + ${color.hexcode} + '; height:50px; width:100px;'" ></td>
-							    </tr>
-							  </tbody>
-							</table>
+                            <div class="row justify-content-center">
+                            	<div class="col-lg-8 col-xl-7 table-container">
+		                            <th:block th:with="pccs=${colorlist.get(0).pccs}">
+									    <h1 th:text="${pccs}">PCCS 컬러</h1>
+									</th:block>
+						        	<table>
+									  <tbody>
+									    <tr th:each="row : ${#numbers.sequence(0, 2)}">
+									      <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" 
+									          th:style="'background-color:' + ${color.hexcode}"
+									          class="color-cell">
+									      </td>
+									    </tr>
+									  </tbody>
+									</table>
+									<br>
+									<th:block th:with="pccs=${colorlist.get(24).pccs}">
+									    <h1 th:text="${pccs}">PCCS 컬러</h1>
+									</th:block>
+									<table>
+									  <tbody>
+									    <tr th:each="row : ${#numbers.sequence(3, 5)}">
+									      <td th:each="color : ${colorlist.subList(row * 8, (row + 1) * 8)}" 
+									          th:style="'background-color:' + ${color.hexcode}"
+									          class="color-cell">
+									      </td>
+									    </tr>
+									  </tbody>
+									</table>
+								</div>
+							</div>
                         </form>
                     </div>
                 </div>

@@ -3427,10 +3427,12 @@ td.color-cell {
 .btn-outline-light {
   color: #f8f9fa;
   border-color: #f8f9fa;
+  margin-right: 10px;  
 }
 .btn-outline-light2 {
-  color: #e85255;
-  border-color: #e85255;
+  color: #000000;
+  border-color: #000000;
+  margin-right: 10px;  
 }
 .btn-outline-light:hover {
   color: #000;
@@ -3438,9 +3440,9 @@ td.color-cell {
   border-color: #f8f9fa;
 }
 .btn-outline-light2:hover {
-  color: #f8f9fa;
-  background-color: #e85255;
-  border-color: #e85255;
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #ffffff;
 }
 .btn-check:focus + .btn-outline-light, .btn-outline-light:focus {
   box-shadow: 0 0 0 0.25rem rgba(248, 249, 250, 0.5);
@@ -11326,6 +11328,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 10px;
 }
 .divider-custom .divider-custom-line {
   width: 100%;
