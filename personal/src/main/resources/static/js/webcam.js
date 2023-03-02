@@ -2,18 +2,28 @@
   var myStoredInterval = 0
  var myImage = document.getElementById('myCanvas')
   
-function getVideo(){
-  navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-  navigator.getMedia({video: true, audio: false},
-                     
-    function(stream) {
-      myVideoStream.srcObject = stream   
-      myVideoStream.play();
-  }, 
-                     
-   function(error) {
-     alert('webcam not working');
-  });
+//function getVideo(){
+//  navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+//  navigator.getMedia({video: true, audio: false},
+//                     
+//    function(stream) {
+//      myVideoStream.srcObject = stream   
+//      myVideoStream.play();
+//  }, 
+//                     
+//   function(error) {
+//     alert('webcam not working');
+//  });
+//}
+  function getVideo(){
+     navigator.mediaDevices.getUserMedia({video: true, audio: false})
+       .then(function(stream) {
+         myVideoStream.srcObject = stream;
+         myVideoStream.play();
+       })
+       .catch(function(error) {
+         alert('webcam not working');
+    });
 }
   
  function takeSnapshot() {
@@ -28,7 +38,7 @@ function getVideo(){
 	  // 이미지 데이터를 추출하여 전송 192.168.80.26
 	  var imageData = myCanvasElement.toDataURL('image/png');
 	  
-	  fetch('http://www.colorinsightforyou.com:8000/image', {
+	  fetch('http://localhost:5000/image', {
 	    method: 'POST',
 	    headers: {
 	      'Content-Type': 'application/json'
@@ -82,7 +92,7 @@ function getVideo(){
 	  loadDiv.innerHTML = '<img src="./assets/img/loading.gif" alt="loading">';
 	  document.body.appendChild(loadDiv);
 	  
-	  fetch('http://www.colorinsightforyou.com:8000/image', {
+	  fetch('http://localhost:5000/image', {
 		    method: 'POST',
 		    headers: {
 		      'Content-Type': 'application/json'
@@ -134,7 +144,7 @@ function getVideo(){
 	  loadDiv.id = 'load';
 	  loadDiv.innerHTML = '<img src="./assets/img/loading.gif" alt="loading">';
 	  document.body.appendChild(loadDiv);	  
-	  fetch('http://www.colorinsightforyou.com:8000/lip', {
+	  fetch('http://localhost:5000/lip', {
 		    method: 'POST',
 		    headers: {
 		      'Content-Type': 'application/json'

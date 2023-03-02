@@ -112,14 +112,14 @@ public class MemberController {
       System.out.println(p.getPnum());
       
       Member pmember = memberRepository.findByEmail(member.getEmail()).orElse(null);
-      System.out.println(pmember.getEmail());
-      pmember.setPersonal(p);
-      List<Color> colorlist = colorRepository.findByPnum(pmember.getPersonal().getPnum());
+//      System.out.println(pmember.getEmail());
+//      pmember.setPersonal(p);
+//      List<Color> colorlist = colorRepository.findByPnum(pmember.getPersonal().getPnum());
       //결과 창에서 해당 pnum의 hexcode컬러값을 가져옴      
       if(pmember != null) {
-         model.addAttribute("pmember",pmember);
-         model.addAttribute("colorlist",colorlist);
-         model.addAttribute("lip",output2);
+    	  model.addAttribute("pmember",pmember);
+         model.addAttribute("lip",p);
+         model.addAttribute("lip2",output2);
       }
       return "result2";
    }
