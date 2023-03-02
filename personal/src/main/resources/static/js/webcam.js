@@ -28,7 +28,7 @@ function getVideo(){
 	  // 이미지 데이터를 추출하여 전송 192.168.80.26
 	  var imageData = myCanvasElement.toDataURL('image/png');
 	  
-	  fetch('http://localhost:5000/image', {
+	  fetch('http://www.colorinsightforyou.com:8000/image', {
 	    method: 'POST',
 	    headers: {
 	      'Content-Type': 'application/json'
@@ -82,7 +82,7 @@ function getVideo(){
 	  loadDiv.innerHTML = '<img src="./assets/img/loading.gif" alt="loading">';
 	  document.body.appendChild(loadDiv);
 	  
-	  fetch('http://localhost:5000/image', {
+	  fetch('http://www.colorinsightforyou.com:8000/image', {
 		    method: 'POST',
 		    headers: {
 		      'Content-Type': 'application/json'
@@ -134,7 +134,7 @@ function getVideo(){
 	  loadDiv.id = 'load';
 	  loadDiv.innerHTML = '<img src="./assets/img/loading.gif" alt="loading">';
 	  document.body.appendChild(loadDiv);	  
-	  fetch('http://localhost:5000/lip', {
+	  fetch('http://www.colorinsightforyou.com:8000/lip', {
 		    method: 'POST',
 		    headers: {
 		      'Content-Type': 'application/json'
